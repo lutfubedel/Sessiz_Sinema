@@ -26,8 +26,8 @@ Bu proje, Unity kullanılarak geliştirilen bir mobil sessiz sinema oyunudur. Oy
 
 ## Ekran Görüntüleri
 
-![Ekran Görüntüsü 1](screenshots/screenshot1.png)
-![Ekran Görüntüsü 2](screenshots/screenshot2.png)
+![Ekran Görüntüsü 1](screenshots/screenshots1.png)
+![Ekran Görüntüsü 2](screenshots/screenshots2.png)
 
 ## Katkıda Bulunma
 
