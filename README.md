@@ -36,7 +36,7 @@ Bu proje, Unity kullanılarak geliştirilen bir mobil sessiz sinema oyunudur. Oy
 </div>
 <div style="display: flex; justify-content: space-between;">
     <img src="screenshots/screenshots5.png" alt="Ekran Görüntüsü 5" width="400"/>
-    <img src="screenshots/screenshost6.png" alt="Ekran Görüntüsü 6" width="400"/>
+    <img src="screenshots/screenshots6.png" alt="Ekran Görüntüsü 6" width="400"/>
 </div>
 
 ## Katkıda Bulunma
