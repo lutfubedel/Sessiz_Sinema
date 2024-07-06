@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Movies : MonoBehaviour
 {
+    
     public string[,] filmler =
     {
         {"Yarým Elma"               ,"Yerli"},
@@ -194,12 +195,62 @@ public class Movies : MonoBehaviour
         {"Nefesini Tut"             ,"Yabancý"},
         {"Salgýn"                   ,"Yabancý"},
         {"Gökdelen"                 ,"Yabancý"},
-
-
-
-
-
-
-
+        {"Forrest Gump"             , "Yabancý"},
+        {"Esaretin Bedeli"          , "Yabancý"},
+        {"Baþlangýç"                , "Yabancý"},
+        {"Kara Þövalye"             , "Yabancý"},
+        {"Ucuz Roman"               , "Yabancý"},
+        {"Baba"                     , "Yabancý"},
+        {"Matrix"                   , "Yabancý"},
+        {"Dövüþ Kulübü"             , "Yabancý"},
+        {"Gladyatör"                , "Yabancý"},
+        {"Aþýklar Þehri"            , "Yabancý"},
+        {"Yýldýzlararasý"           , "Yabancý"},
+        {"Parazit"                  , "Yabancý"},
+        {"Joker"                    , "Yabancý"},
+        {"Sosyal Að"                , "Yabancý"},
+        {"Büyük Budapeþte Oteli"    , "Yabancý"},
+        {"Whiplash"                 , "Yabancý"},
+        {"Aslan Kral"               , "Yabancý"},
+        {"Coco"                     , "Yabancý"},
+        {"Yukarý Bak"               , "Yabancý"},
+        {"Kuzularýn Sessizliði"     , "Yabancý"},
+        {"Yeþil Yol"                , "Yabancý"},
+        {"Yüzüklerin Efendisi"      , "Yabancý"},
+        {"Harry Potter"             , "Yabancý"},
+        {"Indiana Jones"            , "Yabancý"},
+        {"Karayip Korsanlarý"       , "Yabancý"},
+        {"Yýldýz Savaþlarý"         , "Yabancý"},
+        {"Terminatör"               , "Yabancý"},
+        {"Hýzlý ve Öfkeli"          , "Yabancý"},
+        {"Görevimiz Tehlike"        , "Yabancý"},
+        {"Transformers"             , "Yabancý"},
+        {"Örümcek Adam"             , "Yabancý"},
+        {"Batman"                   , "Yabancý"},
+        {"Superman"                 , "Yabancý"},
+        {"Iron Man"                 , "Yabancý"},
+        {"Yenilmezler"              , "Yabancý"},
+        {"Star Trek"                , "Yabancý"},
+        {"Game of Thrones"          , "Yabancý"},
+        {"The Witcher"              , "Yabancý"},
+        {"Breaking Bad"             , "Yabancý"},
+        {"Yarýnýn Sýnýrýnda"        , "Yabancý"},
+        {"Jurassic Park"            , "Yabancý"},
+        {"Avatar"                   , "Yabancý"},
+        {"Yedinci Mühür"            , "Yabancý"},
+        {"Casablanca"               , "Yabancý"},
+        {"Schindler'in Listesi"     , "Yabancý"},
+        {"Geleceðe Dönüþ"           , "Yabancý"},
+        {"Yýldýzlararasý"           , "Yabancý"},
+        {"Gladyatör"                , "Yabancý"},
+        {"Çarpýþma"                 , "Yabancý"},
+        {"Zindan Adasý"             , "Yabancý"},
+        {"Büyük Hesaplaþma"         , "Yabancý"},
+        {"Blade Runner"             , "Yabancý"},
+        {"Cesur Yürek"              , "Yabancý"},
+        {"Esaretin Bedeli"          , "Yabancý"},
+        {"Forrest Gump"             , "Yabancý"},
+        {"Inception"                , "Yabancý"},
+        {"Titanik"                  , "Yabancý"},
     };
 }

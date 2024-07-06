@@ -48,13 +48,12 @@ public class MenuManager : MonoBehaviour
     [Header("Winner Scene UI")]
     public Text team1FinalScore;
     public Text team2FinalScore;
-    public Text winnerName;
+    public TMP_Text winnerName;
     public GameObject winnerEffect;
 
 
-
-    int pass,tempPass;
-    int maxTime,tempTime;
+    int pass, tempPass;
+    int maxTime, tempTime;
     int round, tempRound, maxRound;
     int filmID;
     int team1Score, team2Score;
@@ -67,9 +66,6 @@ public class MenuManager : MonoBehaviour
 
     Movies movies;
 
-    
-
-
     private void Start()
     {
         movies = GetComponent<Movies>();
@@ -78,11 +74,11 @@ public class MenuManager : MonoBehaviour
         round = 1;
         maxRound = 10;
 
-        ChangeMovie();
-
         pass = 3;
         tempTime = 60;
         maxTime = 60;
+
+        ChangeMovie();
 
     }
     private void Update()
@@ -92,24 +88,22 @@ public class MenuManager : MonoBehaviour
         EndOfTheGame();
     }
 
-
-
-
+    // Menü ayarlarýný güncelleyen fonksiyon
     void MenuSettings()
     {
-        if(isSettinsMenuOpen==true)
+        if (isSettinsMenuOpen == true)
         {
-            // Pass Settings
+            // Pas ayarlarý
             pass = (int)passSlider.value;
             passText.text = pass.ToString();
             tempPass = pass;
 
-            // Time Settings
+            // Zaman ayarlarý
             maxTime = (int)timeSlider.value;
             timeText.text = maxTime.ToString();
             tempTime = maxTime;
 
-            // Round Settings
+            // Tur ayarlarý
             maxRound = (int)roundSlider.value;
             roundText.text = maxRound.ToString();
         }
@@ -118,44 +112,48 @@ public class MenuManager : MonoBehaviour
         roundText2.text = "Round : " + round;
         timerText.text = tempTime.ToString();
 
-
     }
+
+    // Film deðiþikliði yapan fonksiyon
     void ChangeMovie()
     {
-        filmID = Random.Range(0, (movies.filmler.Length)/2);
+        filmID = Random.Range(0, (movies.filmler.Length) / 2);
         movieText.text = movies.filmler[filmID, 0];
         kindText.text = movies.filmler[filmID, 1];
     }
+
+    // Turun sonunu kontrol eden fonksiyon
     void EndOfTour()
     {
-        if (tempTime < 0 && readyToPlay==true && round<=maxRound)
+        if (tempTime < 0 && readyToPlay == true && round <= maxRound)
         {
             score1.text = team1Score.ToString();
             score2.text = team2Score.ToString();
+
             scoreScene.SetActive(true);
             gameScene.SetActive(false);
+
             tempRound++;
             readyToPlay = false;
             tempTime = maxTime;
         }
 
-        if ((tempRound==3))
+        if (tempRound == 3)
         {
             round++;
             tempRound = 1;
         }
-            
+
     }
 
+    // Oyunun sonunu kontrol eden fonksiyon
     void EndOfTheGame()
     {
-        if(round>maxRound)
+        if (round > maxRound)
         {
             gameScene.SetActive(false);
             winnerScene.SetActive(true);
             scoreScene.SetActive(false);
-
-            
 
             team1FinalScore.text = team1name + " : " + team1Score.ToString();
             team2FinalScore.text = team2name + " : " + team2Score.ToString();
@@ -166,29 +164,39 @@ public class MenuManager : MonoBehaviour
                 winnerName.text = team2name;
         }
 
-        winnerEffect.transform.Rotate(0, 0, -20f*Time.deltaTime);
+        winnerEffect.transform.Rotate(0, 0, -20f * Time.deltaTime);
     }
 
-
-
+    // Takým menüsünü açan fonksiyon
     public void OpenTeamMenu()
     {
         teamMenu.SetActive(true);
         mainMenu.SetActive(false);
     }
+
+    // Ana menüye geri dönen fonksiyon
     public void BackToMainMenu()
     {
         mainMenu.SetActive(true);
         teamMenu.SetActive(false);
     }
+
+    // Ayarlar menüsünü açan fonksiyon
     public void OpenSettingsMenu()
     {
         settingsMenu.SetActive(true);
         mainMenu.SetActive(false);
         isSettinsMenuOpen = true;
     }
+
+    // Oyunu baþlatan fonksiyon
     public void StartGame()
     {
+        print(team1.text.Length);
+        if (team1.text.Length > 1 && team2.text.Length > 1 && team2.text.Length <= 10 && team2.text.Length <= 10)
+        {
+            team1name = team1.text;
+            team2name = team2.text;
 
             gameScene.SetActive(true);
             teamMenu.SetActive(false);
@@ -198,22 +206,22 @@ public class MenuManager : MonoBehaviour
             readyToPlay = true;
             tempPass = pass;
 
-            team1name = team1.text;
-            team2name = team2.text;
-
             tag1.text = team1name;
             tag2.text = team2name;
 
             StartCoroutine(CountDown());
-
-
+        }
     }
+
+    // Ayarlar menüsüne geri dönen fonksiyon
     public void BackToSettingsMenu()
     {
         mainMenu.SetActive(true);
         settingsMenu.SetActive(false);
         isSettinsMenuOpen = false;
     }
+
+    // Oyunu durduran fonksiyon
     public void StopGame()
     {
         pauseMenu.SetActive(true);
@@ -222,20 +230,23 @@ public class MenuManager : MonoBehaviour
     }
 
 
+    // Devam etme butonu fonksiyonu
     public void ContinueButton()
     {
         ChangeMovie();
 
-        if(tempRound%2==1)
+        if (tempRound % 2 == 1)
             team1Score++;
-        
-        else if (tempRound % 2 ==0)
+
+        else if (tempRound % 2 == 0)
             team2Score++;
-        
+
     }
+
+    // Pas butonu fonksiyonu
     public void PassButton()
     {
-        if(tempPass >0)
+        if (tempPass > 0)
         {
             ChangeMovie();
             tempPass--;
@@ -243,12 +254,15 @@ public class MenuManager : MonoBehaviour
     }
 
 
+    // Oyunu devam ettiren fonksiyon
     public void ResumeButton()
     {
         pauseMenu.SetActive(false);
         gameScene.SetActive(true);
         Time.timeScale = 1;
     }
+
+    // Oyunu yeniden baþlatan fonksiyon
     public void RestartButton()
     {
         Time.timeScale = 1;
@@ -262,6 +276,8 @@ public class MenuManager : MonoBehaviour
         team2Score = 0;
         ChangeMovie();
     }
+
+    // Ana menüye dönen fonksiyon
     public void MainMenuButton()
     {
         StopCoroutine(CountDown());
@@ -269,41 +285,43 @@ public class MenuManager : MonoBehaviour
         pauseMenu.SetActive(false);
         mainMenu.SetActive(true);
         winnerScene.SetActive(false);
-        tempTime = maxTime+1;
+        tempTime = maxTime + 1;
         tempRound = 1;
         round = 1;
         team1Score = 0;
         team2Score = 0;
         stopCountDown = true;
-        
+
     }
 
+    // Uygulamadan çýkan fonksiyon
     public void ExitButton()
     {
         Application.Quit();
     }
-    
+
+    // Zamanlayýcýyý çalýþtýran IEnumerator fonksiyonu
     IEnumerator CountDown()
     {
-        while(tempTime>=0)
+        while (tempTime >= 0)
         {
-            if(readyToPlay == true)
+            if (readyToPlay == true)
             {
                 timeImage.fillAmount = Mathf.InverseLerp(0, maxTime, tempTime);
                 yield return new WaitForSeconds(1.0f);
                 tempTime--;
 
-                if(tempTime == 0)
+                if (tempTime == 0)
                 {
                     tempTime--;
                     break;
                 }
-                if(stopCountDown==true)
+                if (stopCountDown == true)
                 {
-                    break; 
+                    break;
                 }
             }
-            
+
             yield return null;
         }
 
